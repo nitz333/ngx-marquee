@@ -36,7 +36,7 @@
   animation-direction: normal;
 }
 
-@keyframes movement-smooth {
+@keyframes ngx-marquee-movement-smooth {
   from {
       transform: translateX(0%);
       left: 100%;
@@ -47,7 +47,7 @@
   }
 }
 
-@keyframes slide-in-up {
+@keyframes ngx-marquee-slide-in-up {
   0% {
     transform: translateY(100%);
     left: 0%;
@@ -65,7 +65,7 @@
   }
 }
 
-@keyframes slide-in-down {
+@keyframes ngx-marquee-slide-in-down {
   0% {
     transform: translateY(-100%);
     left: 0%;
@@ -83,7 +83,7 @@
   }
 }
 
-@keyframes slide-in-up-right {
+@keyframes ngx-marquee-slide-in-up-right {
   0% {
     transform: translate(-100%, 100%);
     right: -100%;
@@ -101,7 +101,7 @@
   }
 }
 
-@keyframes slide-in-down-right {
+@keyframes ngx-marquee-slide-in-down-right {
   0% {
     transform: translate(-100%, -100%);
     right: -100%;

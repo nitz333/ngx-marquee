@@ -1,0 +1,3 @@
+#!/bin/bash
+#npm install && ./node_modules/.bin/ng build --configuration production ngx-marquee && ./node_modules/.bin/ng serve
+npm install && ./node_modules/.bin/ng build ngx-marquee && ./node_modules/.bin/ng serve

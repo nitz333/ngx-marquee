@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter, Input, Output, Renderer2, ViewChild } from '@angular/core';
+import { ViewEncapsulation, AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter, Input, Output, Renderer2, ViewChild } from '@angular/core';
 import { IntersectionStatus } from './observables/from-intersection-observer';
 
 export enum MarqueeState {
@@ -24,7 +24,14 @@ export enum MarqueeAnimation {
     templateUrl: './ngx-marquee.component.html',
     styleUrls: ['./ngx-marquee.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+    standalone: false,
+
+    // This is necessary because the default, ViewEncasulation.Emulated, in order to keep all css selector names
+    // independent acros components, mangles the css selector names (including the animation keyframe names).
+    // But we're using Renderer2 to manually reference those names (now unmangled) here in the typescript.
+    // Setting encapsulation to None means that it won't mangle them.  That's fine because they're all prefixed
+    // with 'ngx-marquee' anyway.
+    encapsulation: ViewEncapsulation.None
 })
 export class NgxMarqueeComponent implements AfterViewInit {
 
@@ -214,37 +221,37 @@ export class NgxMarqueeComponent implements AfterViewInit {
       {
         if (this.animation === MarqueeAnimation.SlideInUp)
         {
-          this._renderer.setStyle(this._elementMarquee, 'animation-name', 'slide-in-up');
+          this._renderer.setStyle(this._elementMarquee, 'animation-name', 'ngx-marquee-slide-in-up');
         }
         else if (this.animation === MarqueeAnimation.SlideInDown)
         {
-          this._renderer.setStyle(this._elementMarquee, 'animation-name', 'slide-in-down');
+          this._renderer.setStyle(this._elementMarquee, 'animation-name', 'ngx-marquee-slide-in-down');
         }
         else
         {
-          this._renderer.setStyle(this._elementMarquee, 'animation-name', 'movement-smooth');
+          this._renderer.setStyle(this._elementMarquee, 'animation-name', 'ngx-marquee-movement-smooth');
         }
       }
       else if (this.direction === MarqueeDirection.Right)
       {
         if (this.animation === MarqueeAnimation.SlideInUp)
         {
-          this._renderer.setStyle(this._elementMarquee, 'animation-name', 'slide-in-up-right');
+          this._renderer.setStyle(this._elementMarquee, 'animation-name', 'ngx-marquee-slide-in-up-right');
         }
         else if (this.animation === MarqueeAnimation.SlideInDown)
         {
-          this._renderer.setStyle(this._elementMarquee, 'animation-name', 'slide-in-down-right');
+          this._renderer.setStyle(this._elementMarquee, 'animation-name', 'ngx-marquee-slide-in-down-right');
         }
         else
         {
           this._renderer.setStyle(this._elementMarquee, 'animation-direction', 'reverse');
-          this._renderer.setStyle(this._elementMarquee, 'animation-name', 'movement-smooth');
+          this._renderer.setStyle(this._elementMarquee, 'animation-name', 'ngx-marquee-movement-smooth');
         }
       }
     }
     else
     {
-      this._renderer.setStyle(this._elementMarquee, 'animation-name', 'movement-smooth');
+      this._renderer.setStyle(this._elementMarquee, 'animation-name', 'ngx-marquee-movement-smooth');
     }
 
   }

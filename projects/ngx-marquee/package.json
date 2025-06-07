@@ -1,6 +1,6 @@
 {
   "name": "ngx-marquee",
-  "version": "13.2.1",
+  "version": "19.1.1",
   "description": "Powerful Marquee for Angular (based on observers behavior)",
   "keywords": [
     "Angular",
@@ -19,7 +19,8 @@
     "listener",
     "angular 2+",
     "angular 11",
-    "angular 13"
+    "angular 13",
+    "angular 19"
   ],
   "author": {
     "name": "Eduardo Gonzalez Moreno",
@@ -35,10 +36,10 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "~13.2.0",
-    "@angular/core": "~13.2.0"
+    "@angular/common": "^19",
+    "@angular/core": "^19"
   },
   "dependencies": {
-    "tslib": "^2.3.1"
+    "tslib": "^2.3"
   }
 }
